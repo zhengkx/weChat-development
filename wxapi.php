@@ -3,12 +3,9 @@
 session_start();
 
 $wechat = new wechatCallBack();
-$wechat->logger("R \r\n" . "响应消息1");
 if (isset($_GET['echostr'])) {
-    $wechat->logger("R \r\n" . "响应消息2");
     $wechat->checkSignature();
 } else {
-    $wechat->logger("R \r\n" . "响应消息3");
     $wechat->responseMsg();
 }
 
@@ -98,9 +95,9 @@ class wechatCallBack
         $url = "https://api.weixin.qq.com/customservice/kfaccount/add?access_token=$accessToken";
         
         $postData = array(
-            'kf_account' => 'test@test',
+            'kf_account' => 'o6wv_00BFj-hTQA-xqXnbbuUM5Jw@gh_52762522658f',
             'nickname'   => '小客服一号',
-            'password'   => 'pswmd5'
+            'password'   => 'wechat1113776415'
         );
 
         $res = $this->postHttp($url, json_encode($postData));
