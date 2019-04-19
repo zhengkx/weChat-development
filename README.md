@@ -1,5 +1,7 @@
 ## 微信公众号开发之客服消息
 
+完整代码地址： [微信公众号开发之客服消息](<https://github.com/zhengkx/weChat-development>)
+
 ### 一、接入微信公众号平台
 
 * **从后台得到 `appID` 、`appsecret`， 以及自己填写的 `token`  **
@@ -93,13 +95,83 @@ public function getAccessToken()
 
 **添加客服帐号**
 
+**修改客服帐号**
+
+**删除客服账号**
+
+**设置客服账号的头像**
+
+**获取所有客服账号**
+
+以上接口，可能测试号没有权限操作，一直返回以下代码：
+
+```
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [g7c2tA05131503]"}
+```
+
+查了好久，没有找到为什么，那就归到官方不开放吧，等以后搞到个认证过的公众号再来补充了。
+
+#### 2. 客服发送接口
+
 ```php
+<?php
+    /**
+     * 发送客服消息
+     */
+    public function sendCustomerMsg($obj)
+    {
+        $accessToken = $this->getAccessToken();
+
+        $url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=$accessToken";
+
+        // 不指定某个客服回复
+        $postData = array(
+            'touser'  => "$obj->FromUserName",
+            'msgtype' => 'text',
+            'text'    => array (
+                'content' => 'Hello a',
+            )
+        );
+
+        // 指定某个客服回复
+        // $postData = array(
+        //     'touser'  => "$obj->FromUserName",
+        //     'msgtype' => 'text',
+        //     'customservice' => array(
+        //         "kf_account" => "test1@kftest"
+        //     ),
+        //     'text'    => array(
+        //         'content' => 'Hello a',
+        //     )
+        // );
+
+        $res = $this->postHttp($url, json_encode($postData));
+
+        $resArr = json_decode($res, true);
+
+        if (isset($resArr['errcode']) && $resArr['errcode'] == 0) {
+            $this->logger("\r\n" . '发送成功');
+
+            return true;
+        }
+
+        $this->logger("\r\n" . $res);
+    }
 
 ```
 
+我这边是由一个自定义菜单 `在线客服` 按钮触发客服接口，你也可以自己设定其他事件来触发，具体如下
 
+```
+1、用户发送信息
+2、点击自定义菜单（仅有点击推事件、扫码推事件、扫码推事件且弹出“消息接收中”提示框这3种菜单类型是会触发客服接口的）
+3、关注公众号
+4、扫描二维码
+5、支付成功
+6、用户维权
+```
 
-
+### 四、注意
 
 > 网上很多教程都是用 `$GLOBALS["HTTP_RAW_POST_DATA"]`  来接收微信服务器发来的消息，但可能有一些人说没有接收到信息。
 >
@@ -112,3 +184,7 @@ public function getAccessToken()
 > 此功能在PHP 5.6.0中已弃用，从PHP 7.0.0开始已删除。
 >
 > 所以他给出的是使用 `php://input` 来代替
+
+
+
+*望对你们有用，有什么不对也欢迎大家向我反馈，请多指教*

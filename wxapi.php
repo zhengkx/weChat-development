@@ -6,7 +6,7 @@ $wechat = new wechatCallBack();
 if (isset($_GET['echostr'])) {
     $wechat->checkSignature();
 } else {
-    $wechat->responseMsg();
+    return $wechat->responseMsg();
 }
 
 class wechatCallBack
@@ -67,7 +67,7 @@ class wechatCallBack
                 switch ($reType) {
                     case 'event':
                         if ($postObj->EventKey == 'contact') {
-                            $this->sendCustomerMsg($postObj);
+                            $this->forwardCustomerService($postObj);
                         }
                         break;
                     
@@ -75,16 +75,8 @@ class wechatCallBack
                         # code...
                         break;
                 }
-
-                // $res = $this->sendCustomMsg($postObj);
-
-                // return $res;
             }
         }
-
-        // $res = $this->addCustomerService();
-
-        // $this->logger($res);
     }
 
     /**
@@ -163,6 +155,41 @@ class wechatCallBack
         }
 
         $this->logger("\r\n" . $res);
+    }
+
+    /**
+     * 将消息转发到客服
+     *
+     * @return void
+     *
+     * @author zhengkexin
+     *
+     * @created 2019-04-19 17:02:49
+     */
+    public function forwardCustomerService($obj)
+    {
+        // 不指定转发
+        $tmpXml = '<xml>
+                <ToUserName><![CDATA[%s]]></ToUserName>
+                <FromUserName><![CDATA[%s]]></FromUserName>
+                <CreateTime>%s</CreateTime>
+                <MsgType><![CDATA[transfer_customer_service]]></MsgType>
+            </xml>';
+
+        // 指定转发到某客服
+        $tmpXml1 = '<xml>
+                <ToUserName><![CDATA[%s]]></ToUserName>
+                <FromUserName><![CDATA[%s]]></FromUserName>
+                <CreateTime>%s</CreateTime>
+                <MsgType><![CDATA[transfer_customer_service]]></MsgType>
+                <TransInfo>
+                    <KfAccount><![CDATA[test1@test]]></KfAccount>
+                </TransInfo>
+            </xml>';
+
+        $resultXml = sprintf($tmpXml, $obj->FromUserName, $obj->ToUserName, time());
+
+        echo $resultXml;
     }
 
     /**
