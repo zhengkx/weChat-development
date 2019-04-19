@@ -3,11 +3,12 @@
 session_start();
 
 $wechat = new wechatCallBack();
-
+$wechat->logger("R \r\n" . "响应消息1");
 if (isset($_GET['echostr'])) {
+    $wechat->logger("R \r\n" . "响应消息2");
     $wechat->checkSignature();
 } else {
-    $wechat->logger("R \r\n" . "响应消息");
+    $wechat->logger("R \r\n" . "响应消息3");
     $wechat->responseMsg();
 }
 
