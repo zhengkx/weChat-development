@@ -7,6 +7,7 @@ $wechat = new wechatCallBack();
 if (isset($_GET['echostr'])) {
     $wechat->checkSignature();
 } else {
+    $this->logger("\r\n 响应消息");
     $wechat->responseMsg();
 }
 
