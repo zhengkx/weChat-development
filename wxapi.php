@@ -75,16 +75,8 @@ class wechatCallBack
                         # code...
                         break;
                 }
-
-                // $res = $this->sendCustomMsg($postObj);
-
-                // return $res;
             }
         }
-
-        // $res = $this->addCustomerService();
-
-        // $this->logger($res);
     }
 
     /**
