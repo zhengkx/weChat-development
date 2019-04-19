@@ -14,3 +14,55 @@ Array
  添加结果：
 {"errcode":40001,"errmsg":"invalid credential, access_token is invalid or not latest hint: [CNyOBA04108876!]"}
 2019-04-19 03:43:29： 
+2019-04-19 14:14:36： R 
+响应消息1
+2019-04-19 14:14:36： R 
+响应消息3
+2019-04-19 14:14:36： 
+
+2019-04-19 14:14:36： 
+ 添加结果：
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [S.RjFa04763115]"}
+2019-04-19 14:14:36： 
+2019-04-19 14:14:41： R 
+响应消息1
+2019-04-19 14:14:41： R 
+响应消息3
+2019-04-19 14:14:41： 
+
+2019-04-19 14:14:41： 
+ 添加结果：
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [77ykza04811503]"}
+2019-04-19 14:14:41： 
+2019-04-19 14:15:12： R 
+响应消息1
+2019-04-19 14:15:12： R 
+响应消息3
+2019-04-19 14:15:12： 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555654512</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-19 14:15:13： 
+ 添加结果：
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [g7c2tA05131503]"}
+2019-04-19 14:15:13： 
+2019-04-19 14:35:33： R 
+响应消息1
+2019-04-19 14:35:33： R 
+响应消息3
+2019-04-19 14:35:33： 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_00BFj-hTQA-xqXnbbuUM5Jw]]></FromUserName>
+<CreateTime>1555655733</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+2019-04-19 14:35:33： 
+ 添加结果：
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [.ZG82a07330832]"}
+2019-04-19 14:35:33： 
