@@ -7,7 +7,7 @@ $wechat = new wechatCallBack();
 if (isset($_GET['echostr'])) {
     $wechat->checkSignature();
 } else {
-    $this->logger("\r\n 响应消息");
+    $wechat->logger("R \r\n" . "响应消息");
     $wechat->responseMsg();
 }
 
@@ -105,7 +105,7 @@ class wechatCallBack
         $res = $this->postHttp($url, json_encode($postData));
 
         $resArr = json_decode($res, true);
-        $this->logger("\r\n 添加结果：\r\n" . $resArr);
+        $this->logger("\r\n 添加结果：\r\n" . $res);
         if (isset($resArr['errcode']) && $resArr['errcode'] == 0) {
             $this->logger('添加成功');
 
@@ -186,7 +186,7 @@ class wechatCallBack
     /**
      * 日志
      */
-    private function logger($logContent)
+    public function logger($logContent)
     {
         $max_size = 1000000;
         $log_filename = "log.xml";
@@ -195,6 +195,6 @@ class wechatCallBack
             unlink($log_filename);
         }
 
-        file_put_contents($log_filename, date('Y-m-d H:i:s') . " " . $logContent . "\r\n", FILE_APPEND);
+        file_put_contents($log_filename, date('Y-m-d H:i:s') . "： " . $logContent . "\r\n", FILE_APPEND);
     }
 }
