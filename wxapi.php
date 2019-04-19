@@ -56,33 +56,35 @@ class wechatCallBack
 
         $this->logger("\r\n" . $postStr);
 
-        // if (!empty($postStr)) {
-        //     $this->logger("R \r\n" . $postStr);
+        if (!empty($postStr)) {
+            $this->logger("R \r\n" . $postStr);
 
-        //     $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
 
-        //     $reType = trim($postObj->MsgType);
+            $reType = trim($postObj->MsgType);
 
-        //     if ($reType) {
-        //         switch ($reType) {
-        //             case 'value':
-        //                 # code...
-        //                 break;
+            if ($reType) {
+                switch ($reType) {
+                    case 'event':
+                        if ($postObj->EventKey == 'contact') {
+                            $this->sendCustomerMsg($postObj);
+                        }
+                        break;
                     
-        //             default:
-        //                 # code...
-        //                 break;
-        //         }
+                    default:
+                        # code...
+                        break;
+                }
 
-        //         // $res = $this->sendCustomMsg($postObj);
+                // $res = $this->sendCustomMsg($postObj);
 
-        //         // return $res;
-        //     }
-        // }
+                // return $res;
+            }
+        }
 
-        $res = $this->addCustomerService();
+        // $res = $this->addCustomerService();
 
-        $this->logger($res);
+        // $this->logger($res);
     }
 
     /**
@@ -95,7 +97,7 @@ class wechatCallBack
         $url = "https://api.weixin.qq.com/customservice/kfaccount/add?access_token=$accessToken";
         
         $postData = array(
-            'kf_account' => 'o6wv_00BFj-hTQA-xqXnbbuUM5Jw@gh_52762522658f',
+            'kf_account' => '-qXnbbuUM5Jw@g2522658f',
             'nickname'   => '小客服一号',
             'password'   => 'wechat1113776415'
         );
@@ -111,6 +113,56 @@ class wechatCallBack
         }
 
         return false;
+    }
+
+    /**
+     * 发送客服消息
+     *
+     * @param [type] $obj
+     * @return void
+     *
+     * @author zhengkexin
+     *
+     * @created 2019-04-19 15:30:35
+     */
+    public function sendCustomerMsg($obj)
+    {
+        $accessToken = $this->getAccessToken();
+
+        $url = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=$accessToken";
+
+        // 不指定某个客服回复
+        $postData = array(
+            'touser'  => "$obj->FromUserName",
+            'msgtype' => 'text',
+            'text'    => array (
+                'content' => 'Hello a',
+            )
+        );
+
+        // 指定某个客服回复
+        // $postData = array(
+        //     'touser'  => "$obj->FromUserName",
+        //     'msgtype' => 'text',
+        //     'customservice' => array(
+        //         "kf_account" => "test1@kftest"
+        //     ),
+        //     'text'    => array(
+        //         'content' => 'Hello a',
+        //     )
+        // );
+
+        $res = $this->postHttp($url, json_encode($postData));
+
+        $resArr = json_decode($res, true);
+
+        if (isset($resArr['errcode']) && $resArr['errcode'] == 0) {
+            $this->logger("\r\n" . '发送成功');
+
+            return true;
+        }
+
+        $this->logger("\r\n" . $res);
     }
 
     /**

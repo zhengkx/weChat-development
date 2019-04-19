@@ -78,4 +78,19 @@ Array
  添加结果：
 {"errcode":40001,"errmsg":"invalid credential, access_token is invalid or not latest hint: [0G58Oa09493401!]"}
 2019-04-19 03:52:28： 
+<<<<<<< HEAD
 >>>>>>> c910c1d5c8b0f7c99a44aa1324f0d7d1bd3534c9
+=======
+2019-04-19 06:39:50： 
+
+2019-04-19 06:39:50： 
+ 添加结果：
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [O_sNQa09920832]"}
+2019-04-19 06:39:50： 
+2019-04-19 06:40:02： 
+
+2019-04-19 06:40:02： 
+ 添加结果：
+{"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [AfFPLA00031503]"}
+2019-04-19 06:40:02： 
+>>>>>>> 9eac253abc5256c5552d688cf1760b14b99ae370
