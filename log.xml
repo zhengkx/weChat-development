@@ -94,3 +94,69 @@ Array
 {"errcode":65400,"errmsg":"please enable new custom service, or wait for a while if you have enabled hint: [AfFPLA00031503]"}
 2019-04-19 06:40:02： 
 >>>>>>> 9eac253abc5256c5552d688cf1760b14b99ae370
+2019-04-19 15:34:00： 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555659240</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-19 15:34:00： R 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555659240</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-19 15:34:00： 
+发送成功
+2019-04-19 17:10:49： 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555665049</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-19 17:10:49： R 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555665049</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-19 17:11:00： 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555665060</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-19 17:11:00： R 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555665060</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-20 15:44:17： 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555746257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
+2019-04-20 15:44:17： R 
+<xml><ToUserName><![CDATA[gh_52762522658f]]></ToUserName>
+<FromUserName><![CDATA[o6wv_0_Jnik59y3b7swdaFjfm3c8]]></FromUserName>
+<CreateTime>1555746257</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[CLICK]]></Event>
+<EventKey><![CDATA[contact]]></EventKey>
+</xml>
