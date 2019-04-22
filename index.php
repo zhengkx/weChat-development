@@ -1,6 +1,4 @@
 <?php
-require_once('redis.php');
-
 session_start();
 $index  = new IndexClass();
 
@@ -28,11 +26,9 @@ class IndexClass
 
     public function getList()
     {
-        $redis = new RedisClass();
+        $openId = isset($_SESSION['openid']) ? $_SESSION['openid'] : [];
 
-        $data = $redis->get();
-
-        exit(json_encode($data));
+        exit(json_encode($openId));
     }
 
     public function sendMessage($openId)
@@ -50,7 +46,7 @@ class IndexClass
 
         // 不指定某个客服回复
         $postData = array(
-            'touser'  => "$obj->FromUserName",
+            'touser'  => "$obj",
             'msgtype' => 'text',
             'text'    => array (
                 'content' => 'Hello a',
