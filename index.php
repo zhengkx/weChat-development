@@ -1,4 +1,6 @@
 <?php
+require_once('redis.php');
+
 session_start();
 $index  = new IndexClass();
 
@@ -26,9 +28,11 @@ class IndexClass
 
     public function getList()
     {
-        $openId = isset($_SESSION['openid']) ? $_SESSION['openid'] : [];
+        $redis = new RedisClass();
 
-        exit(json_encode($openId));
+        $data = $redis->get();
+
+        exit(json_encode($data));
     }
 
     public function sendMessage($openId)

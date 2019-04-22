@@ -68,9 +68,8 @@ class wechatCallBack
                 switch ($reType) {
                     case 'event':
                         if ($postObj->EventKey == 'contact') {
-                            $openId = isset($_SESSION['openid']) ? $_SESSION['openid'] : [];
-                            $openId[] = $postObj->FromUserName;
-                            $_SESSION['openid'] = $openId;
+                            $redis = new redisClass();
+                            $redis->set($postObj->FromUserName);
                             $this->sendCustomerMsg($postObj);
                         }
                         break;
