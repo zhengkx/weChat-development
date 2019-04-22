@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <div class="row" style="margin: 20px">
+        <form>
+            <div class="btn-group col-md-6" role="group" aria-label="..." style="padding-left: 0">
+                <button type="button" class="btn btn-primary" onclick="sendMessage()">发送</button>
+                <!-- <button type="button" class="btn btn-default">删除</button> -->
+                <button type="button" class="btn btn-danger">删除列表</button>
+            </div><br><br>
+            <ul class="list-group list col-md-7" id="list">
+                <li class="list-group-item">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            getList()
+        });
+
+        function getList() {
+            $('#list').empty();
+
+            $.get('index.php?act=list', {}, function (res) {
+                var html = '';
+                $(res).each(function (index, item) {
+                    html += '<li class="list-group-item"><div class="checkbox"><label><input type="checkbox" name="list[]" value="' + item + '">' + item + '</label></div></li>';
+                }, "json")
+                $('#list').append(html);
+            }, "json");
+        }
+
+        function sendMessage()
+        {
+            var checkID = [];
+            $("input[name='list[]']:checked").each(function (i) {
+                checkID[i] = $(this).val();
+            });
+
+            console.log(checkID);
+            var openId = $("input[name='list[]']").val();
+            $.post('index.php?act=send', {openId: checkID}, function (res) {
+                console.log(res);
+            }, 'json');
+        }
+    </script>
+</body>
+
+</html>

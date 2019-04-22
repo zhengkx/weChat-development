@@ -1,4 +1,5 @@
 <?php
+require_once('redis.php');
 
 session_start();
 
@@ -67,7 +68,9 @@ class wechatCallBack
                 switch ($reType) {
                     case 'event':
                         if ($postObj->EventKey == 'contact') {
-                            $this->forwardCustomerService($postObj);
+                            $redis = new redisClass();
+                            $redis->set($postObj->FromUserName);
+                            $this->sendCustomerMsg($postObj);
                         }
                         break;
                     
