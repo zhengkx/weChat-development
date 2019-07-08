@@ -22,9 +22,9 @@ switch ($act) {
 
 class IndexClass
 {
-    public $appid  = 'wx352e1bbc2a748137';
-    public $sercet = 'dd22744f927fe4cfa8f2ba2726aefaf4';
-    public $token  = 'zhaixing';
+    public $appid  = 'wx35*******137';
+    public $sercet = 'dd2********aefaf4';
+    public $token  = 'z*****ng';
 
     public function getList()
     {
